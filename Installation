@@ -1,0 +1,23 @@
+==> First register the server to redhat
+# subscription-manager register  >> provide redhat portal usernama and password
+
+==> Ensure the server has a unique Fully Qualified Domain Name (FQDN) and proper DNS resolution (both forward and reverse).
+==>Have active Red Hat subscriptions and manifests ready.
+==>Check system requirements: minimum 4-core CPU, 20 GB RAM, sufficient disk space (depends on content and usage).
+==>Configure necessary network ports and firewall rules
+==> The enable the required repos baseos, appstream, satellite and satellite-maintenance
+==> update the server
+# dnf update -y
+
+==> Install satellite package
+
+==> run satellite-installter to configure it
+
+# satellite-installer --scenario satellite \
+--foreman-initial-organization "Your_Org" \
+--foreman-initial-location "Your_Location" \
+--foreman-initial-admin-username admin \
+--foreman-initial-admin-password YourPassword
+
+==> Once complete, access the Satellite Web UI via https://<Satellite_FQDN> and log in with the admin credentials.
+==> Upload manifests from the Red Hat Customer Portal to start managing content and hosts.
