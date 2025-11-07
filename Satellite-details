@@ -1,0 +1,32 @@
+==> What is ondemand and immediate download policy in repos.
+
+OnDemand is bydefault for all redhat repos and for thirsd party it is bydefault immediate
+Ondemand satellite will download only the metadata not all rpm pkgs. Once the client req the pkg satellite will be able to read the CDN download that rpm deliver to client and 
+put it in correct place
+Ondemand sync is fast as it download only metadata
+
+Immediate:
+Download all the pks. Like if repo has 30gb of content satellite will downlaod it while syncing and need to wait till it finish.
+
+
+
+==> Host COllections:
+
+Suppose we have patchiing activity next weekend. SO create host collection and add the hosts to it. We can perform many action on the content hosts which are
+part of this host collections, like installing, update, chg assigned lifecycle and CV
+
+
+==> it has conf files
+
+/etc/foreman-installer-scenario.d
+
+If we installing satellite satellite-installer --scenario satellite then satellite.yml file from above dir will be used for --scenario capsule capsule.yml will be used
+
+
+==> satellite-answers.yaml created only in first time and updated anytime u pass flag with value or --reset option 
+==> SO we change any file manually or value and run satellite-installer it will be resetted to default value as mentioned in answer file.
+
+==> To chg the value persistently we need to set falg using stallite-installer. Like to set the log level to debug from info we can use bleow flag
+# satellite-installer --foreman-proxy-lo-level=DEBUG   
+
+==> Now when we run installer command value will not get chg
