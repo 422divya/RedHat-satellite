@@ -1,0 +1,16 @@
+==> To check service status
+# foreman-maintain service status -b
+
+==> hammer
+# hammer ping  >> check some endpoints, status of satellite and check most imp components with response time
+
+==> foreman-tail >>> gives the output from diff files
+
+==> subscription-manager repos --list
+
+==> subscription-manager repos --enable repo_id
+
+==> satellite-installer --help
+==> satellite-installer --full-help  >> gives more details
+
+==> subscription-manager config
